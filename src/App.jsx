@@ -3,11 +3,17 @@ import './App.css'
 
 export function App(){
   const [usuario, setUsuario] = useState('')
+  const [senha,setSenha] = useState('')
 
   function handleUsuario(evento){
     setUsuario(evento.target.value)
   }
-  console.log(usuario)
+  function handleSenha(evento){
+    setSenha(evento.target.value)
+  }
+  function handleSubmit(){
+    alert(`usuario: ${usuario} / Senha: ${senha}`)
+  }
 
   return(
     <>
@@ -16,7 +22,7 @@ export function App(){
     </header>
 
     <main>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="usuario">Usuario</label>
           <input
@@ -29,7 +35,12 @@ export function App(){
 
         <div>
           <label htmlFor="senha">Senha</label>
-          <input type="password" id='senha' placeholder='Digite sua senha'/>
+          <input
+            type="password"
+            id='senha'
+            placeholder='Digite sua senha'
+            onChange={handleSenha}
+            />
         </div>
 
         <button>Entrar</button>
